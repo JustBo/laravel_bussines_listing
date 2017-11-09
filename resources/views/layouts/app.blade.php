@@ -70,8 +70,11 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+        <div class="container">
+          @include('inc.messages')
+          @yield('content')
+          @include('inc.errors.form')
+        </div>
     </div>
 
     <!-- Scripts -->
