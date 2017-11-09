@@ -17,9 +17,9 @@
                       </tr>
                       @foreach ($listings as $listing)
                         <tr>
-                          <th>{{$listing->name}}</th>
-                          <th></th>
-                          <th></th>
+                          <td>{{$listing->name}}</td>
+                          <td><a class="pull-right btn btn-default" href="/listings/{{$listing->id}}/edit">Edit</a></td>
+                          <td></td>
                         </tr>
                       @endforeach
                     </table>

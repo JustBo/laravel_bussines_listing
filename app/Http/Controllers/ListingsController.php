@@ -65,7 +65,8 @@ class ListingsController extends Controller
      */
     public function edit($id)
     {
-        //
+      $listing = Listing::findOrFail($id);
+      return view('editlisting')->with( compact('listing') );
     }
 
     /**
@@ -77,7 +78,15 @@ class ListingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      //validate form
+      $this->validate($request, [
+        'name' => 'required',
+        'email' => 'email'
+      ]);
+      //Update listing
+      $listing = Listing::findOrFail( $id );
+      $listing->update( $request->input() );
+      return redirect('/dashboard')->with('success','Listing updated');
     }
 
     /**

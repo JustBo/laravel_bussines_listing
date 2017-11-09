@@ -19,4 +19,9 @@ class Listing extends Model
   public function user(){
     return $this->belongsTo('App\User');
   }
+
+  public function getFillable(){
+    return $this->fillable;
+  }
+
 }
